@@ -128,11 +128,6 @@
     - Filtros válidos: 'categoria', 'preco_min' e 'preco_max'.
     - A ordenação pode ser feita por 'nome' ou 'preco'.
 
-
-    - Preço deve ser um número e positivo.
-    - Nome não pode ser vazio.
-    - Ano não pode ser 0.
-
 ## Testes Postman:
 
 ### GET /
