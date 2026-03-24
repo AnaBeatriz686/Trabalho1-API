@@ -5,7 +5,6 @@ const PORT = 3000;
 
 app.use(express.json());
 
-// Dados em memória (simulando um banco de dados).
 let jogos = [
     { id: 1, nome: "Resident Evil Requiem", preco: 300, categoria: "Terror", ano: 2026 },
     { id: 2, nome: "Hollow Knight", preco: 50, categoria: "Ação", ano: 2017 },
@@ -33,8 +32,6 @@ app.get('/info', (req, res) => {
     });
 });
 
-// GET /api/jogos
-// filtros + ordenação + paginação
 app.get('/api/jogos', (req, res) => {
     const {
         categoria,
@@ -48,12 +45,9 @@ app.get('/api/jogos', (req, res) => {
 
     let resultado = [...jogos];
 
-    // Filtros
     if (categoria) resultado = resultado.filter(p => p.categoria === categoria);
     if (preco_min) resultado = resultado.filter(p => p.preco >= +preco_min);
     if (preco_max) resultado = resultado.filter(p => p.preco <= +preco_max);
-
-    // Ordenação
     
     if (ordem === 'preco') {
         resultado.sort((a, b) =>
@@ -68,7 +62,6 @@ app.get('/api/jogos', (req, res) => {
         );
     }
 
-    // Paginação
     const paginaNum = parseInt(pagina);
     const limiteNum = parseInt(limite);
 
@@ -86,8 +79,6 @@ app.get('/api/jogos', (req, res) => {
     });
 });
 
-
-// GET por ID
 app.get('/api/jogos/:id', (req, res) => {
     const id = parseInt(req.params.id);
     const jogo = jogos.find(p => p.id === id);
@@ -101,11 +92,8 @@ app.get('/api/jogos/:id', (req, res) => {
     res.json(jogo);
 });
 
-// POST - criar novo jogo
 app.post('/api/jogos', (req, res) => {
     const { nome, preco, categoria, ano } = req.body;
-
-    // Validações
      
 
     if (!nome || nome.trim() === "" || preco === undefined || !categoria || ano === undefined) {
@@ -139,32 +127,46 @@ app.post('/api/jogos', (req, res) => {
     res.status(201).json(novoJogo);
 });
 
-// PUT - atualizar jogo
-// PUT - Atualizar jogo (Versão Corrigida)
 app.put('/api/jogos/:id', (req, res) => {
     const id = parseInt(req.params.id);
-    const index = jogos.findIndex(j => j.id === id);
+    const jogoIndex = jogos.findIndex(j => j.id === id);
 
-    if (index === -1) {
+    if (jogoIndex === -1) {
         return res.status(404).json({ erro: "Jogo não encontrado" });
     }
 
-    // EXTRAINDO OS DADOS DO CORPO DA REQUISIÇÃO
-    const { nome, preco, categoria, ano } = req.body;
+    const jogo = jogos[jogoIndex];
 
-    // ATUALIZANDO DIRETAMENTE NO ARRAY PARA EVITAR ERRO DE VARIÁVEL
-    if (nome) jogos[index].nome = nome;
-    if (preco) jogos[index].preco = Number(preco);
-    if (categoria) jogos[index].categoria = categoria;
-    if (ano) jogos[index].ano = Number(ano);
+    let { nome, preco, categoria, ano } = req.body;
+
+    preco = Number(preco);
+    ano = Number(ano);
+
+    if (!nome || nome.trim() === "" || !categoria || categoria.trim() === "" || isNaN(preco) || isNaN(ano)) {
+        return res.status(400).json({
+            erro: "Campos obrigatórios: nome, preco, categoria, ano (preco e ano devem ser números)"
+        });
+    }
+
+    if (preco <= 0) {
+        return res.status(400).json({ erro: "O preço deve ser um número válido maior que 0" });
+    }
+
+    if (ano <= 0) {
+        return res.status(400).json({ erro: "O ano deve ser um número válido maior que 0" });
+    }
+
+    jogo.nome = nome.trim();
+    jogo.preco = preco;
+    jogo.categoria = categoria.trim();
+    jogo.ano = ano;
 
     res.json({
         mensagem: "Jogo atualizado com sucesso",
-        jogo: jogos[index]
+        jogo
     });
 });
 
-// DELETE
 app.delete('/api/jogos/:id', (req, res) => {
     const id = parseInt(req.params.id);
     const index = jogos.findIndex(p => p.id === id);
@@ -180,7 +182,6 @@ app.delete('/api/jogos/:id', (req, res) => {
     res.status(204).send();
 });
 
-// Iniciar servidor
 app.listen(PORT, () => {
     console.log(`Servidor rodando em http://localhost:${PORT}`);
 });

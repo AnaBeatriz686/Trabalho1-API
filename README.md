@@ -136,9 +136,10 @@
 ## Testes Postman:
 
 ### GET /
-![teste.get/](<GET .-1.png>)
+![teste.get/](<GET ..png>)
 
 ### GET /info
+![teste.get/info](info.png)
 ![teste.get/info](info-1.png)
 
 ### GET /api/jogos
@@ -148,11 +149,14 @@
 ![teste.get-api/jogos/id](<GET api.jogos.id.png>)
 
 ### POST api/jogos
-![teste.post1](<POST api.jogos.png>)
+![teste.post1](<POST api.jogos.png>) 
 ![teste.post2](<post 2.png>)
 ![teste.post3](<post 3.png>)
 ![teste.post4](<post 4.png>)
 ![teste.post5](<post 5.png>)
+
+![teste.erro-post-nome](<post erro nome.png>)
+![teste.erro-post-preco](<post erro preco.png>)
 
 ### DELETE
 ![teste.delete](<Captura de tela 2026-03-23 205026.png>)
