@@ -136,27 +136,26 @@
 ## Testes Postman:
 
 ### GET /
-![teste.get/](<GET ..png>)
+<img width="1441" height="394" alt="GET " src="https://github.com/user-attachments/assets/81818cdb-5a4d-4b27-a077-bcce41db6ba3" />
 
 ### GET /info
-![teste.get/info](info.png)
-![teste.get/info](info-1.png)
+<img width="1435" height="363" alt="info" src="https://github.com/user-attachments/assets/efb24aa0-abfd-4f84-a409-8f85ba690bd5" />
 
 ### GET /api/jogos
-![teste.get-api/jogos](<GET api.jogos.png>)
+<img width="1439" height="938" alt="GET api jogos" src="https://github.com/user-attachments/assets/c362980f-537f-4e78-aaac-97f0847af226" />
 
 ### GET api/jogos/:id
-![teste.get-api/jogos/id](<GET api.jogos.id.png>)
+<img width="1435" height="387" alt="GET api jogos id" src="https://github.com/user-attachments/assets/50fda659-84cb-4d5d-96f9-9f656bcb157e" />
 
 ### POST api/jogos
-![teste.post1](<POST api.jogos.png>) 
-![teste.post2](<post 2.png>)
-![teste.post3](<post 3.png>)
-![teste.post4](<post 4.png>)
-![teste.post5](<post 5.png>)
+<img width="1434" height="685" alt="POST api jogos" src="https://github.com/user-attachments/assets/f0554a0e-3c93-4954-9b50-adbc149fa454" />
+<img width="1440" height="635" alt="post 2" src="https://github.com/user-attachments/assets/e7efed69-4b76-458a-9dda-9322e4b15598" />
+<img width="1429" height="661" alt="post 3" src="https://github.com/user-attachments/assets/d5b792e4-89ee-4a3d-b3af-4b917c5fbf08" />
+<img width="1430" height="652" alt="post 4" src="https://github.com/user-attachments/assets/17fc6318-f11c-40ac-b152-e469271c9e0a" />
+<img width="1441" height="648" alt="post 5" src="https://github.com/user-attachments/assets/11648f98-a219-41b6-bef5-6c6c603c6918" />
 
-![teste.erro-post-nome](<post erro nome.png>)
-![teste.erro-post-preco](<post erro preco.png>)
+<img width="1441" height="932" alt="post erro nome" src="https://github.com/user-attachments/assets/132dcb6b-93f6-4733-88a0-5780bbbf8351" />
+<img width="1440" height="543" alt="post erro preco" src="https://github.com/user-attachments/assets/f15c2e91-bda7-41a9-b9bb-3e5c3a1e62f8" />
 
 ### DELETE
-![teste.delete](<Captura de tela 2026-03-23 205026.png>)
+<img width="1442" height="328" alt="Captura de tela 2026-03-23 205026" src="https://github.com/user-attachments/assets/20fffb89-acbb-4d5a-86fc-b85d4b522652" />
